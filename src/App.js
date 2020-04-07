@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
+import UsersPage from './pages/UsersPage'
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
           </Route>
           <Route path='/dashboard'>
             <DashboardPage />
+          </Route>
+          <Route path='/users'>
+            <UsersPage />
           </Route>
         </Switch>
       </div>
