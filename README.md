@@ -13,7 +13,7 @@ Visit the live example: https://auth.haidar.dev
 - React
   - Axios for REST API
   - React Router
-  - Emotion.sh
+  - xstyled with Emotion.sh
 - Netlify
 - Cloudflare
 
