@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { emailPattern } from '../utils/regex'
 import {
   Form,
-  FormGroup,
+  InputGroup,
   Label,
   LabelError,
   Input,
@@ -23,7 +23,7 @@ const RegisterForm = () => {
   return (
     <div>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormGroup>
+        <InputGroup>
           <Label htmlFor='userName'>Your name</Label>
           {errors.userName && (
             <LabelError>{errors.userName.message}</LabelError>
@@ -44,8 +44,8 @@ const RegisterForm = () => {
               },
             })}
           />
-        </FormGroup>
-        <FormGroup>
+        </InputGroup>
+        <InputGroup>
           <Label htmlFor='userEmail'>Email</Label>
           {errors.userEmail && (
             <LabelError>{errors.userEmail.message}</LabelError>
@@ -66,8 +66,8 @@ const RegisterForm = () => {
               },
             })}
           />
-        </FormGroup>
-        <FormGroup>
+        </InputGroup>
+        <InputGroup>
           <Label htmlFor='userPassword'>Password</Label>
           {errors.userPassword && (
             <LabelError>{errors.userPassword.message}</LabelError>
@@ -87,7 +87,7 @@ const RegisterForm = () => {
               },
             })}
           />
-        </FormGroup>
+        </InputGroup>
 
         <SubmitButton type='submit' value='Register' />
 

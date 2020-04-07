@@ -9,7 +9,7 @@ export const Form = styled.form`
   flex-direction: column;
 `
 
-export const FormGroup = styled.div`
+export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
 `
