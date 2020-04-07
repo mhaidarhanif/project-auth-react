@@ -14,6 +14,7 @@ Visit the live example: https://auth.haidar.dev
   - Axios for REST API
   - React Router
   - xstyled with Emotion.sh
+  - React Hook Form
 - Netlify
 - Cloudflare
 
