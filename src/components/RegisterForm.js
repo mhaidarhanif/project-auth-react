@@ -24,12 +24,10 @@ const RegisterForm = () => {
     <div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputGroup>
-          <Label htmlFor='userName'>Your name</Label>
-          {errors.userName && (
-            <LabelError>{errors.userName.message}</LabelError>
-          )}
+          <Label htmlFor='name'>Your name</Label>
+          {errors.name && <LabelError>{errors.name.message}</LabelError>}
           <Input
-            name='userName'
+            name='name'
             type='text'
             placeholder='Your Full Name'
             ref={register({
@@ -46,12 +44,10 @@ const RegisterForm = () => {
           />
         </InputGroup>
         <InputGroup>
-          <Label htmlFor='userEmail'>Email</Label>
-          {errors.userEmail && (
-            <LabelError>{errors.userEmail.message}</LabelError>
-          )}
+          <Label htmlFor='email'>Email</Label>
+          {errors.email && <LabelError>{errors.email.message}</LabelError>}
           <Input
-            name='userEmail'
+            name='email'
             type='email'
             placeholder='name@example.com'
             ref={register({
@@ -68,12 +64,12 @@ const RegisterForm = () => {
           />
         </InputGroup>
         <InputGroup>
-          <Label htmlFor='userPassword'>Password</Label>
-          {errors.userPassword && (
-            <LabelError>{errors.userPassword.message}</LabelError>
+          <Label htmlFor='password'>Password</Label>
+          {errors.password && (
+            <LabelError>{errors.password.message}</LabelError>
           )}
           <Input
-            name='userPassword'
+            name='password'
             type='password'
             placeholder='**********'
             ref={register({
