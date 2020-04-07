@@ -5,8 +5,7 @@ import Users from '../components/Users'
 
 const DashboardPage = () => {
   return (
-    <Page>
-      <h2>Dashboard</h2>
+    <Page title='Dashboard'>
       <Users></Users>
     </Page>
   )

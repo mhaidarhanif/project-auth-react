@@ -4,9 +4,7 @@ import Page from '../components/Page'
 
 const RegisterPage = () => {
   return (
-    <Page>
-      <h2>Register</h2>
-
+    <Page title='Register'>
       <form>
         <input type='text' placeholder='Your Name' />
         <input type='email' placeholder='email@example.com' />

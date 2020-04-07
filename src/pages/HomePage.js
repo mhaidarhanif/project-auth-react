@@ -5,13 +5,12 @@ import Page from '../components/Page'
 
 const HomePage = () => {
   return (
-    <Page>
-      <h2>Welcome to Project Auth React</h2>
-      <h3>
+    <Page title='Welcome to Project Auth React'>
+      <p>
         Please <Link to='/register'>register</Link> or{' '}
         <Link to='/login'>login</Link> to see the{' '}
         <Link to='/dashboard'>dashboard</Link>.
-      </h3>
+      </p>
     </Page>
   )
 }
