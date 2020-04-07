@@ -50,11 +50,15 @@ const Header = () => {
           <li>
             <Link to='/login'>Login</Link>
           </li>
+
+          <li>
+            <Link to='/dashboard'>Dashboard</Link>
+          </li>
           <li>
             <Link to='/users'>Users</Link>
           </li>
           <li>
-            <Link to='/dashboard'>Dashboard</Link>
+            <Link to='/search'>Search</Link>
           </li>
         </NavigationList>
       </Navigation>

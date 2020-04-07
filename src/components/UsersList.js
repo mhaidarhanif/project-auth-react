@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from '@xstyled/emotion'
-import axios from 'axios'
-import MoonLoader from 'react-spinners/MoonLoader'
 
-import fetch from '../utils/fetch'
+import MoonLoader from 'react-spinners/MoonLoader'
 
 const UsersContainer = styled.div``
 
@@ -15,10 +13,13 @@ const UsersSection = styled.section`
 
 const User = styled.div`
   background: #eee;
-  padding: 1rem;
   margin: 0.5rem 0;
   border-radius: 0.5rem;
-  min-width: 500px;
+  width: 500px;
+`
+
+const UserProfile = styled.div`
+  margin: 1rem;
 `
 
 const UserName = styled.h3`
@@ -29,36 +30,7 @@ const UserEmail = styled.p`
   margin: 0;
 `
 
-const UsersList = () => {
-  const [users, setUsers] = useState()
-
-  useEffect(() => {
-    const CancelToken = axios.CancelToken
-    const source = CancelToken.source()
-
-    const loadData = async () => {
-      try {
-        const response = await fetch.get('/users', {
-          cancelToken: source.token,
-        })
-        const users = response.data.data
-        setUsers(users)
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log('cancelled')
-        } else {
-          throw error
-        }
-      }
-    }
-
-    loadData()
-
-    return () => {
-      source.cancel()
-    }
-  }, [])
-
+const UsersList = ({ users }) => {
   return (
     <UsersContainer>
       {!users ? (
@@ -71,8 +43,10 @@ const UsersList = () => {
           {users.map((user, index) => {
             return (
               <User key={index}>
-                <UserName>{user.name}</UserName>
-                <UserEmail>{user.email}</UserEmail>
+                <UserProfile>
+                  <UserName>{user.name}</UserName>
+                  <UserEmail>{user.email}</UserEmail>
+                </UserProfile>
               </User>
             )
           })}

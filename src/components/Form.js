@@ -4,7 +4,7 @@ export const Form = styled.form`
   background: #eee;
   padding: 2rem;
   border-radius: 0.5rem;
-  min-width: 500px;
+  width: 500px;
   display: flex;
   flex-direction: column;
 `
