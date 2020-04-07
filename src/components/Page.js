@@ -2,8 +2,7 @@ import React from 'react'
 import styled from '@xstyled/emotion'
 
 import Header from './Header'
-import PageTitle from './PageTitle'
-import PageContent from './PageContent'
+import Content from './Content'
 import Footer from './Footer'
 
 const PageStyled = styled.div`
@@ -12,13 +11,12 @@ const PageStyled = styled.div`
   min-height: 100vh;
 `
 
-const Page = ({ children }) => {
+const Page = ({ title, children }) => {
   return (
     <PageStyled>
       <Header></Header>
 
-      <PageTitle></PageTitle>
-      <PageContent>{children}</PageContent>
+      <Content title={title}>{children}</Content>
 
       <Footer></Footer>
     </PageStyled>
