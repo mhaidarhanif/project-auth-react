@@ -1,14 +1,9 @@
 import React from 'react'
 
 import Page from '../components/Page'
-import UsersPanel from '../components/UsersPanel'
 
 const DashboardPage = () => {
-  return (
-    <Page title='Dashboard'>
-      <UsersPanel></UsersPanel>
-    </Page>
-  )
+  return <Page title='Dashboard'>DASHBOARD</Page>
 }
 
 export default DashboardPage

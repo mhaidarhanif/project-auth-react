@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 import UsersPage from './pages/UsersPage'
+import SearchPage from './pages/SearchPage'
 
 const App = () => {
   return (
@@ -27,6 +28,9 @@ const App = () => {
           </Route>
           <Route path='/users'>
             <UsersPage />
+          </Route>
+          <Route path='/search'>
+            <SearchPage />
           </Route>
         </Switch>
       </div>
