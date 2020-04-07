@@ -10,6 +10,7 @@ const HomePage = () => {
         <p>
           Please <Link to='/register'>register</Link> or{' '}
           <Link to='/login'>login</Link> to see the{' '}
+          <Link to='/users'>users</Link> and{' '}
           <Link to='/dashboard'>dashboard</Link>.
         </p>
         <p>
@@ -21,7 +22,7 @@ const HomePage = () => {
             <li>Register new user</li>
             <li>Login to existing user</li>
             <li>See all users</li>
-            <li>Filter users by name</li>
+            <li>Search users by name</li>
           </ul>
         </p>
       </div>

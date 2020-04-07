@@ -8,11 +8,10 @@ const UsersPanelStyled = styled.div`
   min-width: 500px;
 `
 
-const UsersPanel = () => {
+const UsersPanel = ({ search }) => {
   return (
     <UsersPanelStyled>
       <UsersSearch></UsersSearch>
-      <UsersList></UsersList>
     </UsersPanelStyled>
   )
 }
