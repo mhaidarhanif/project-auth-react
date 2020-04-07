@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Page from '../components/Page'
-import Users from '../components/Users'
+import UsersPanel from '../components/UsersPanel'
 
 const DashboardPage = () => {
   return (
     <Page title='Dashboard'>
-      <Users></Users>
+      <UsersPanel></UsersPanel>
     </Page>
   )
 }

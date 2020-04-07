@@ -16,7 +16,7 @@ const UsersSection = styled.section`
 const User = styled.div`
   background: #eee;
   padding: 1rem;
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   border-radius: 0.5rem;
   min-width: 500px;
 `
@@ -29,7 +29,7 @@ const UserEmail = styled.p`
   margin: 0;
 `
 
-const Users = () => {
+const UsersList = () => {
   const [users, setUsers] = useState()
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Users = () => {
       {!users ? (
         <UsersSection>
           <MoonLoader size={50} color={'#333'} loading={!users}></MoonLoader>
-          <p> Loading users...</p>
+          <p>Loading users...</p>
         </UsersSection>
       ) : (
         <UsersSection>
@@ -82,4 +82,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default UsersList
