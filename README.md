@@ -16,6 +16,24 @@ Visit the live example: https://auth.haidar.dev
 - Netlify
 - Cloudflare
 
+## Scripts
+
+### Install Dependencies
+
+```sh
+yarn
+```
+
+### Run Server
+
+```sh
+yarn dev
+```
+
+```sh
+yarn start
+```
+
 ## License
 
 MIT
