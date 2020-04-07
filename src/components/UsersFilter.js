@@ -1,21 +1,22 @@
 import React from 'react'
 import styled from '@xstyled/emotion'
 
-import { Label, Input } from '../components/Form'
+import { Label, Input, SubmitButton } from '../components/Form'
 
-const UsersFilterStyled = styled.div`
+const UsersSearchStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 `
 
-const UsersFilter = () => {
+const UsersSearch = () => {
   return (
-    <UsersFilterStyled>
+    <UsersSearchStyled>
       <Label htmlFor='filter'>Filter users by name</Label>
       <Input name='filter' type='text' placeholder='Keyword' />
-    </UsersFilterStyled>
+      <SubmitButton type='submit' value='Filter' />
+    </UsersSearchStyled>
   )
 }
 
-export default UsersFilter
+export default UsersSearch

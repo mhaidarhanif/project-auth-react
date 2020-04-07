@@ -32,6 +32,8 @@ Visit the live example: https://auth.haidar.dev
   - Don't show the password
 - Get user by id
   - Don't show the password
+- Search user by name from input text field
+  - Request each submitted
 
 ## Scripts
 

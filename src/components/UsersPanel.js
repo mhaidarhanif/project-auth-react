@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@xstyled/emotion'
 
-import UsersFilter from '../components/UsersFilter'
+import UsersSearch from '../components/UsersSearch'
 import UsersList from '../components/UsersList'
 
 const UsersPanelStyled = styled.div`
@@ -11,7 +11,7 @@ const UsersPanelStyled = styled.div`
 const UsersPanel = () => {
   return (
     <UsersPanelStyled>
-      <UsersFilter></UsersFilter>
+      <UsersSearch></UsersSearch>
       <UsersList></UsersList>
     </UsersPanelStyled>
   )
