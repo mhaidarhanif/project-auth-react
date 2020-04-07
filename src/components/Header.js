@@ -1,12 +1,49 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from '@xstyled/emotion'
+
+const HeaderStyled = styled.header`
+  background: #111;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const LinkHome = styled(Link)`
+  text-decoration: none;
+`
+
+const AppName = styled.h1`
+  color: #fd3;
+  margin: 0;
+`
+
+const Navigation = styled.nav``
+
+const NavigationList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  li {
+    text-transform: uppercase;
+    margin: 0 10px;
+    a {
+      text-decoration: none;
+      letter-spacing: 0.1em;
+    }
+  }
+`
 
 const Header = () => {
   return (
-    <header>
-      <h1>Project Auth React</h1>
-      <nav>
-        <ul>
+    <HeaderStyled>
+      <LinkHome to='/'>
+        <AppName>Project Auth React</AppName>
+      </LinkHome>
+
+      <Navigation>
+        <NavigationList>
           <li>
             <Link to='/'>Home</Link>
           </li>
@@ -19,9 +56,9 @@ const Header = () => {
           <li>
             <Link to='/dashboard'>Dashboard</Link>
           </li>
-        </ul>
-      </nav>
-    </header>
+        </NavigationList>
+      </Navigation>
+    </HeaderStyled>
   )
 }
 
