@@ -43,6 +43,7 @@ const RegisterForm = () => {
             })}
           />
         </InputGroup>
+
         <InputGroup>
           <Label htmlFor='email'>Email</Label>
           {errors.email && <LabelError>{errors.email.message}</LabelError>}
@@ -63,6 +64,7 @@ const RegisterForm = () => {
             })}
           />
         </InputGroup>
+
         <InputGroup>
           <Label htmlFor='password'>Password</Label>
           {errors.password && (
