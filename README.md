@@ -1,2 +1,5 @@
-# project-auth-react
-Project Example: Auth with React
+# Project Example: Auth with React
+
+## License
+
+MIT
