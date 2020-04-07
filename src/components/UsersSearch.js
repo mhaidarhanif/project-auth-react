@@ -1,20 +1,39 @@
 import React from 'react'
 import styled from '@xstyled/emotion'
+import { useForm } from 'react-hook-form'
 
 import { Label, Input } from './Form'
 
-const UsersSearchStyled = styled.div`
+const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 `
 
-const UsersSearch = () => {
+const UsersSearch = ({ updateKeyword }) => {
+  const { register, handleSubmit, errors } = useForm()
+
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
+  const handleChange = (event) => {
+    const keyword = event.target.value
+    updateKeyword(keyword)
+  }
+
   return (
-    <UsersSearchStyled>
+    <SearchForm onSubmit={handleSubmit(onSubmit)}>
       <Label htmlFor='filter'>Search users by name</Label>
-      <Input name='filter' type='text' placeholder='Keyword' />
-    </UsersSearchStyled>
+      <Input
+        name='keyword'
+        type='text'
+        placeholder='Keyword'
+        ref={register({ required: true })}
+        onChange={handleChange}
+      />
+      {errors.keyword && <span>Keyword is required</span>}
+    </SearchForm>
   )
 }
 
