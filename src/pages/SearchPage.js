@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Page from '../components/Page'
-import UsersPanel from '../components/UsersPanel'
+import UsersSearchPanel from '../components/UsersSearchPanel'
 
 const SearchPage = () => {
   return (
     <Page title='Search'>
-      <UsersPanel></UsersPanel>
+      <UsersSearchPanel />
     </Page>
   )
 }

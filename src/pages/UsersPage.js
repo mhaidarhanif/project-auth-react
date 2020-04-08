@@ -1,44 +1,17 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 import Page from '../components/Page'
 import UsersList from '../components/UsersList'
 
-import fetch from '../utils/fetch'
+import { checkIsAuthenticated } from '../utils/auth'
 
 const UsersPage = () => {
-  const [users, setUsers] = useState()
-
-  useEffect(() => {
-    const CancelToken = axios.CancelToken
-    const source = CancelToken.source()
-
-    const loadData = async () => {
-      try {
-        const response = await fetch.get('/users', {
-          cancelToken: source.token,
-        })
-        const users = response.data.data
-        setUsers(users)
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log('cancelled')
-        } else {
-          throw error
-        }
-      }
-    }
-
-    loadData()
-
-    return () => {
-      source.cancel()
-    }
-  }, [])
+  const isAuthenticated = checkIsAuthenticated()
 
   return (
     <Page title='All Users'>
-      <UsersList users={users}></UsersList>
+      {isAuthenticated ? <UsersList /> : <Redirect to='/login' />}
     </Page>
   )
 }
