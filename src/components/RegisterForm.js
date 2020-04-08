@@ -14,14 +14,22 @@ import {
   FormHelp,
 } from './Form'
 
+import jwt from '../utils/jwt'
+
 const RegisterForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
   const [message, setMessage] = useState('')
 
   const onSubmit = async (userData) => {
     try {
-      await fetch.post('/users/register', userData)
-      props.history.push('/register/success')
+      await fetch.post('/users/register', userData, {
+        headers: {
+          Authorization: `Bearer ${jwt.getToken()}`,
+        },
+      })
+      props.setIsRegistered(true)
+      // Don't use props.history.push() as
+      // it causes race condition problem with the token retrieval
     } catch (error) {
       setMessage(error.response.data.message)
     }

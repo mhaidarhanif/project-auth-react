@@ -5,6 +5,7 @@ import UsersSearchForm from './UsersSearchForm'
 import Users from './Users'
 
 import fetch from '../utils/fetch'
+import jwt from '../utils/jwt'
 
 const UsersPanelStyled = styled.div`
   width: 500px;
@@ -16,7 +17,11 @@ const UsersSearchPanel = ({ search }) => {
   const updateKeyword = (keyword) => {
     const loadData = async (keyword) => {
       try {
-        const response = await fetch.get(`/users/search?name=${keyword}`)
+        const response = await fetch.get(`/users/search?name=${keyword}`, {
+          headers: {
+            Authorization: `Bearer ${jwt.getToken()}`,
+          },
+        })
         const users = response.data.users
         setUsers(users)
       } catch (error) {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import Page from '../components/Page'
@@ -8,10 +8,12 @@ import { checkIsAuthenticated } from '../utils/auth'
 
 const RegisterPage = () => {
   const isAuthenticated = checkIsAuthenticated()
+  const [isRegistered, setIsRegistered] = useState()
 
   return (
     <Page title='Get Started'>
-      {!isAuthenticated ? <RegisterForm /> : <Redirect to='/' />}
+      {!isAuthenticated && <RegisterForm setIsRegistered={setIsRegistered} />}
+      {isRegistered && <Redirect to='/register/success' />}
     </Page>
   )
 }

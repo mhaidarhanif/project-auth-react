@@ -4,6 +4,7 @@ import axios from 'axios'
 import Users from '../components/Users'
 
 import fetch from '../utils/fetch'
+import jwt from '../utils/jwt'
 
 const UsersList = () => {
   const [users, setUsers] = useState()
@@ -16,6 +17,9 @@ const UsersList = () => {
       try {
         const response = await fetch.get('/users', {
           cancelToken: source.token,
+          headers: {
+            Authorization: `Bearer ${jwt.getToken()}`,
+          },
         })
         const users = response.data.users
         setUsers(users)
