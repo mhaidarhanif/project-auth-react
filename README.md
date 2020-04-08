@@ -1,5 +1,7 @@
 # Project Example: Auth with React
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c05cb043-3799-423b-a090-1c2b4cb19756/deploy-status)](https://app.netlify.com/sites/auth-haidar-dev/deploys)
+
 Visit the live example: https://auth.haidar.dev
 
 ## Links
