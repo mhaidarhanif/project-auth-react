@@ -28,12 +28,10 @@ Visit the live example: https://auth.haidar.dev
   - Email
   - Password
   - Retrieve authorization token with JWT
+- Get authenticated user profile
 - Get all users
-  - Don't show the password
-- Get user by id
-  - Don't show the password
 - Search user by name from input text field
-  - Request each submitted
+  - Request each character typing or submitted
 
 ## Scripts
 
