@@ -14,11 +14,14 @@ Visit the live example: https://auth.haidar.dev
 
 - React
   - Axios for REST API
-  - React Router
   - xstyled with Emotion.sh
+  - React Router
   - React Hook Form
+  - React Spinner
+- JWT Decode
 - Netlify
 - Cloudflare
+- Uniregistry
 
 ## Features
 
