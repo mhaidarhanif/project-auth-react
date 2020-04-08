@@ -19,6 +19,9 @@ const HomePage = () => {
             <Link to='/users'>users</Link> and{' '}
             <Link to='/dashboard'>dashboard</Link>.
           </p>
+          <p>
+            Check <Link to='/about'>about page</Link> for demo users.
+          </p>
         </div>
       )}
 

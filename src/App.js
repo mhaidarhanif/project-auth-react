@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import axios from 'axios'
 
 import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
 import RegisterPage from './pages/RegisterPage'
 import RegisterSuccessPage from './pages/RegisterSuccessPage'
 import LoginPage from './pages/LoginPage'
@@ -45,6 +46,9 @@ const App = () => {
         <Switch>
           <Route path='/' exact>
             <HomePage />
+          </Route>
+          <Route path='/about'>
+            <AboutPage />
           </Route>
           <Route path='/register' exact>
             <RegisterPage />

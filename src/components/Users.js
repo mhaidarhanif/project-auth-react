@@ -3,7 +3,9 @@ import styled from '@xstyled/emotion'
 
 import MoonLoader from 'react-spinners/MoonLoader'
 
-const UsersContainer = styled.div``
+const UsersContainer = styled.div`
+  margin-bottom: 3rem;
+`
 
 const UsersSection = styled.section`
   display: flex;

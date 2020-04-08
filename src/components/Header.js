@@ -48,6 +48,10 @@ const Header = () => {
 
       <Navigation>
         <NavigationList>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+
           {!isAuthenticated && (
             <React.Fragment>
               <li>
