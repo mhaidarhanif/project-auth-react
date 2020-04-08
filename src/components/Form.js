@@ -1,4 +1,5 @@
 import styled from '@xstyled/emotion'
+import { Link } from 'react-router-dom'
 
 export const Form = styled.form`
   background: #eee;
@@ -36,8 +37,9 @@ export const Input = styled.input`
   }
 `
 
-export const SubmitButton = styled.input`
+export const Button = styled.input`
   background-color: hsl(50, 100%, 60%);
+  font-weight: 700;
   border: none;
   border-radius: 0.5rem;
   color: #000;
@@ -58,6 +60,31 @@ export const SubmitButton = styled.input`
   }
 `
 
+export const LinkButton = styled(Link)`
+  background-color: hsl(50, 100%, 60%);
+  border: none;
+  border-radius: 0.5rem;
+  color: #000;
+  font-size: 1.2em;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  &:hover {
+    background-color: hsl(50, 100%, 40%);
+  }
+  &:focus {
+    background-color: hsl(50, 100%, 30%);
+  }
+`
+
 export const FormHelp = styled.p`
   text-align: center;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  margin-bottom: 0;
+  background: ${(props) => (props.error ? 'palevioletred' : 'none')};
 `

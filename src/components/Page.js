@@ -14,11 +14,11 @@ const PageStyled = styled.div`
 const Page = ({ title, children }) => {
   return (
     <PageStyled>
-      <Header></Header>
+      <Header />
 
       <Content title={title}>{children}</Content>
 
-      <Footer></Footer>
+      <Footer />
     </PageStyled>
   )
 }

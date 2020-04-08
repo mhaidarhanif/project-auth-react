@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@xstyled/emotion'
 
+import { checkIsAuthenticated } from '../utils/auth'
+
 const HeaderStyled = styled.header`
   background: #111;
   padding: 1rem;
@@ -36,6 +38,8 @@ const NavigationList = styled.ul`
 `
 
 const Header = () => {
+  const isAuthenticated = checkIsAuthenticated()
+
   return (
     <HeaderStyled>
       <LinkHome to='/'>
@@ -44,22 +48,33 @@ const Header = () => {
 
       <Navigation>
         <NavigationList>
-          <li>
-            <Link to='/register'>Register</Link>
-          </li>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
+          {!isAuthenticated && (
+            <React.Fragment>
+              <li>
+                <Link to='/register'>Register</Link>
+              </li>
+              <li>
+                <Link to='/login'>Login</Link>
+              </li>
+            </React.Fragment>
+          )}
 
-          <li>
-            <Link to='/dashboard'>Dashboard</Link>
-          </li>
-          <li>
-            <Link to='/users'>Users</Link>
-          </li>
-          <li>
-            <Link to='/search'>Search</Link>
-          </li>
+          {isAuthenticated && (
+            <React.Fragment>
+              <li>
+                <Link to='/dashboard'>Dashboard</Link>
+              </li>
+              <li>
+                <Link to='/users'>Users</Link>
+              </li>
+              <li>
+                <Link to='/search'>Search</Link>
+              </li>
+              <li>
+                <Link to='/logout'>Logout</Link>
+              </li>
+            </React.Fragment>
+          )}
         </NavigationList>
       </Navigation>
     </HeaderStyled>

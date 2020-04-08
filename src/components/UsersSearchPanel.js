@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from '@xstyled/emotion'
 
-import UsersSearch from '../components/UsersSearch'
-import UsersList from '../components/UsersList'
+import UsersSearchForm from './UsersSearchForm'
+import Users from './Users'
 
 import fetch from '../utils/fetch'
 
@@ -10,29 +10,35 @@ const UsersPanelStyled = styled.div`
   width: 500px;
 `
 
-const UsersPanel = ({ search }) => {
+const UsersSearchPanel = ({ search }) => {
   const [users, setUsers] = useState()
 
   const updateKeyword = (keyword) => {
     const loadData = async (keyword) => {
       try {
         const response = await fetch.get(`/users/search?name=${keyword}`)
-        const users = response.data.data
+        const users = response.data.users
         setUsers(users)
       } catch (error) {
-        throw error
+        console.error(error)
       }
     }
 
-    loadData(keyword)
+    // Only fetch if there is a keyword at least 1 character
+    // Set list of users to empty if otherwise
+    if (keyword) {
+      loadData(keyword)
+    } else {
+      setUsers([])
+    }
   }
 
   return (
     <UsersPanelStyled>
-      <UsersSearch updateKeyword={updateKeyword} />
-      {users && <UsersList users={users} />}
+      <UsersSearchForm updateKeyword={updateKeyword} />
+      {users && <Users users={users} />}
     </UsersPanelStyled>
   )
 }
 
-export default UsersPanel
+export default UsersSearchPanel

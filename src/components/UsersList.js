@@ -1,58 +1,46 @@
-import React from 'react'
-import styled from '@xstyled/emotion'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-import MoonLoader from 'react-spinners/MoonLoader'
+import Users from '../components/Users'
 
-const UsersContainer = styled.div``
+import fetch from '../utils/fetch'
 
-const UsersSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
+const UsersList = () => {
+  const [users, setUsers] = useState()
 
-const User = styled.div`
-  background: #eee;
-  margin: 0.5rem 0;
-  border-radius: 0.5rem;
-  width: 500px;
-`
+  useEffect(() => {
+    const CancelToken = axios.CancelToken
+    const source = CancelToken.source()
 
-const UserProfile = styled.div`
-  margin: 1rem;
-`
+    const loadData = async () => {
+      try {
+        const response = await fetch.get('/users', {
+          cancelToken: source.token,
+        })
+        const users = response.data.users
+        setUsers(users)
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log(
+            'Fetch users is cancelled because user is not authenticated'
+          )
+        } else {
+          console.error(error)
+        }
+      }
+    }
 
-const UserName = styled.h3`
-  margin: 0;
-`
+    loadData()
 
-const UserEmail = styled.p`
-  margin: 0;
-`
+    return () => {
+      source.cancel()
+    }
+  }, [])
 
-const UsersList = ({ users }) => {
   return (
-    <UsersContainer>
-      {!users ? (
-        <UsersSection>
-          <MoonLoader size={50} color={'#333'} loading={!users}></MoonLoader>
-          <p>Loading users...</p>
-        </UsersSection>
-      ) : (
-        <UsersSection>
-          {users.map((user, index) => {
-            return (
-              <User key={index}>
-                <UserProfile>
-                  <UserName>{user.name}</UserName>
-                  <UserEmail>{user.email}</UserEmail>
-                </UserProfile>
-              </User>
-            )
-          })}
-        </UsersSection>
-      )}
-    </UsersContainer>
+    <div>
+      <Users users={users} />
+    </div>
   )
 }
 

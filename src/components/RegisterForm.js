@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
+import fetch from '../utils/fetch'
 import { emailPattern } from '../utils/regex'
 import {
   Form,
@@ -9,15 +10,20 @@ import {
   Label,
   LabelError,
   Input,
-  SubmitButton,
+  Button,
   FormHelp,
 } from './Form'
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = async (userData) => {
+    try {
+      await fetch.post('/users/register', userData)
+      props.history.push('/register/success')
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -87,7 +93,7 @@ const RegisterForm = () => {
           />
         </InputGroup>
 
-        <SubmitButton type='submit' value='Register' />
+        <Button type='submit' value='Register' />
 
         <FormHelp>
           Already registered? <Link to='/login'>Login here</Link>
@@ -97,4 +103,4 @@ const RegisterForm = () => {
   )
 }
 
-export default RegisterForm
+export default withRouter(RegisterForm)

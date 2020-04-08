@@ -10,11 +10,11 @@ const SearchForm = styled.form`
   margin-bottom: 1rem;
 `
 
-const UsersSearch = ({ updateKeyword }) => {
+const UsersSearchForm = ({ updateKeyword }) => {
   const { register, handleSubmit, errors } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
+    updateKeyword(data.keyword)
   }
 
   const handleChange = (event) => {
@@ -32,9 +32,10 @@ const UsersSearch = ({ updateKeyword }) => {
         ref={register({ required: true })}
         onChange={handleChange}
       />
+
       {errors.keyword && <span>Keyword is required</span>}
     </SearchForm>
   )
 }
 
-export default UsersSearch
+export default UsersSearchForm
