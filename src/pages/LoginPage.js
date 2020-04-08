@@ -13,7 +13,7 @@ const LoginPage = () => {
   return (
     <Page title='Login'>
       {!isAuthenticated && <LoginForm setIsLoggedIn={setIsLoggedIn} />}
-      {isAuthenticated && isLoggedIn && <Redirect to='/dashboard' />}
+      {isAuthenticated && isLoggedIn && <Redirect to='/' />}
     </Page>
   )
 }
