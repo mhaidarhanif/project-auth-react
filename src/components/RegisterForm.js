@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 import fetch from '../utils/fetch'
-import { emailPattern } from '../utils/regex'
+import { fullNamePattern, emailPattern } from '../utils/regex'
 import {
   Form,
   InputGroup,
@@ -16,13 +16,14 @@ import {
 
 const RegisterForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
+  const [message, setMessage] = useState('')
 
   const onSubmit = async (userData) => {
     try {
       await fetch.post('/users/register', userData)
       props.history.push('/register/success')
     } catch (error) {
-      console.error(error)
+      setMessage(error.response.data.message)
     }
   }
 
@@ -37,7 +38,10 @@ const RegisterForm = (props) => {
             type='text'
             placeholder='Your Full Name'
             ref={register({
-              required: true,
+              required: {
+                value: true,
+                message: 'Full name is required',
+              },
               minLength: {
                 value: 2,
                 message: 'Name length is at least 2 characters',
@@ -45,6 +49,10 @@ const RegisterForm = (props) => {
               maxLength: {
                 value: 100,
                 message: 'Name length is too long',
+              },
+              pattern: {
+                value: fullNamePattern,
+                message: 'Only use alphabets',
               },
             })}
           />
@@ -58,7 +66,10 @@ const RegisterForm = (props) => {
             type='email'
             placeholder='name@example.com'
             ref={register({
-              required: true,
+              required: {
+                value: true,
+                message: 'Email is required',
+              },
               minLength: {
                 value: 3,
                 message: 'Email address length is at least 3 characters',
@@ -92,6 +103,8 @@ const RegisterForm = (props) => {
             })}
           />
         </InputGroup>
+
+        {message && <FormHelp error>{message}</FormHelp>}
 
         <Button type='submit' value='Register' />
 

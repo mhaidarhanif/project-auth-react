@@ -26,7 +26,8 @@ const LoginForm = (props) => {
       if (response) {
         storage.setKey('token', response.data.token)
         props.setIsLoggedIn(true)
-        // Don't use props.history.push() as it causes race condition problem
+        // Don't use props.history.push() as
+        // it causes race condition problem with the token retrieval
       }
     } catch (error) {
       setMessage(error.response.data.message)

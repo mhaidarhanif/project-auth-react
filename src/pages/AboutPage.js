@@ -15,20 +15,24 @@ const AboutPage = () => {
       <div>
         <h3>Demo Users</h3>
         <table>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Password</th>
-          </tr>
-          {demoUsers.map((user, index) => {
-            return (
-              <tr>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td class='code'>{user.password}</td>
-              </tr>
-            )
-          })}
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
+            </tr>
+          </thead>
+          <tbody>
+            {demoUsers.map((user, index) => {
+              return (
+                <tr key={index}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td className='code'>{user.password}</td>
+                </tr>
+              )
+            })}
+          </tbody>
         </table>
       </div>
       <LinkButton to='/login'>Login </LinkButton>
