@@ -16,13 +16,19 @@ import {
   FormHelp,
 } from './Form'
 
+import jwt from '../utils/jwt'
+
 const LoginForm = (props) => {
   const { register, handleSubmit, errors } = useForm()
   const [message, setMessage] = useState('')
 
   const onSubmit = async (userData) => {
     try {
-      const response = await fetch.post('/users/login', userData)
+      const response = await fetch.post('/users/login', userData, {
+        headers: {
+          Authorization: `Bearer ${jwt.getToken()}`,
+        },
+      })
       if (response) {
         storage.setKey('token', response.data.token)
         props.setIsLoggedIn(true)
